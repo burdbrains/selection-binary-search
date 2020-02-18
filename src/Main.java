@@ -7,7 +7,7 @@ public class Main {
         System.out.println(sequential(list, 13));
         System.out.println(sequential(list, 22));
 
-        System.out.println(binary(list, 2));
+        System.out.println(binary(list, 51));
         System.out.println(binary(list, 22));
     }
 
@@ -24,31 +24,24 @@ public class Main {
         return vRet;
     }
 
+    public static boolean vRet = false;
     public static boolean binary(int[] list, int vPar)
     {
         int[] list1 = Arrays.copyOfRange(list, 0, list.length/2);
-        int[] list2 = Arrays.copyOfRange(list, list.length/2 + 1, list.length);
+        int[] list2 = Arrays.copyOfRange(list, list.length/2, list.length);
 
-        boolean vRet = false;
-
-        if (list.length == 1)
+        if (list.length == 2 && (list1[0] != vPar && list2[0] != vPar))
         {
-            // do nothing?
-            if (list[0] == vPar)
-            {
-                vRet = true;
-            }
+            // do nothing #1
         }
         else if (list1[list1.length-1] > vPar)
         {
             binary(list1, vPar);
         }
-
         else if (list2[0] < vPar)
         {
             binary(list2, vPar);
         }
-
         else
         {
             vRet = true;
